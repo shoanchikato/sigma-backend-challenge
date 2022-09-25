@@ -35,9 +35,15 @@ function streamRouterFactory(streamService) {
       return;
     }
 
-    const newUser = streamService.modifyUserStreams(payload, user);
+    try {
+      const newUser = streamService.modifyUserStreams(payload, user);
 
-    res.status(200).json(newUser);
+      res.status(200).json(newUser);
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({ message: error.message });
+      return;
+    }
   });
 
   return router;
