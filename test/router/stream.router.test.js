@@ -59,4 +59,16 @@ describe("stream router", () => {
         done(err);
       });
   });
+
+  it("should return not found error message", (done) => {
+    request(app)
+      .put("/streams/999999")
+      .expect("Content-Type", /json/)
+      .expect(404)
+      .then((response) => {
+        expect(response.body).toEqual({ message: "user 999999 not found"});
+        done();
+      })
+      .catch((err) => done(err));
+  });
 });
