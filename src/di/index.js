@@ -17,10 +17,6 @@ function appFactory() {
   app.use("/users", userRouter);
   app.use("/streams", streamRouter);
 
-  app.get("/hello", (req, res) => {
-    res.send("hello world");
-  });
-
   return app;
 }
 
