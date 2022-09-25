@@ -1,7 +1,11 @@
 const request = require("supertest");
 const appFactory = require("../../src/di");
 
-const app = appFactory();
+let app = null;
+
+beforeEach(() => {
+  app = appFactory();
+});
 
 describe("user route /users", () => {
   it("GET / should return users", (done) => {
