@@ -7,16 +7,19 @@ function userRouterFactory() {
       id: 1,
       name: "John",
       surname: "Doe",
+      streams: 1,
     },
     {
       id: 2,
       name: "Jane",
       surname: "Doe",
+      streams: 2,
     },
     {
       id: 3,
       name: "Jenny",
       surname: "Doe",
+      streams: 3,
     },
   ];
 
