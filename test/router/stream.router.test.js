@@ -7,7 +7,7 @@ describe("stream router", () => {
   it("PUT /2 should return increase the number of streams by number of action.streams", (done) => {
     request(app)
       .put("/streams/2")
-      .send({ action: "increase", streams: 2 })
+      .send({ action: "increase", streams: 1 })
       .expect("Content-Type", /json/)
       .expect(200)
       .then((response) => {
@@ -15,7 +15,7 @@ describe("stream router", () => {
           id: 2,
           name: "Jane",
           surname: "Doe",
-          streams: 4,
+          streams: 3,
         });
         done();
       })

@@ -1,4 +1,4 @@
-function streamRouterFactory() {
+function streamRouterFactory(streamService) {
   const express = require("express");
   const router = express.Router();
 
@@ -25,6 +25,7 @@ function streamRouterFactory() {
 
   router.put("/:id", (req, res) => {
     const { id: idString } = req.params;
+    const payload = req.body;
 
     const id = parseInt(idString);
 
@@ -34,22 +35,9 @@ function streamRouterFactory() {
       return;
     }
 
-    const [inc, dec] = ["increase", "decrese"];
+    const newUser = streamService.modifyUserStreams(payload, user);
 
-    const payload = req.body;
-
-    users.forEach((user) => {
-      if (payload.action === inc) {
-        user.streams += payload.streams;
-      } else if (payload.action === dec) {
-        user.streams -= payload.streams;
-      } else {
-        res.status(400).json({ message: "unknown action" });
-        return;
-      }
-    });
-
-    res.status(200).json(user);
+    res.status(200).json(newUser);
   });
 
   return router;

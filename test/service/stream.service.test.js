@@ -1,8 +1,8 @@
-const streamRouterFactory = require("../../src/service/stream.service");
+const streamServiceFactory = require("../../src/service/stream.service");
 
 describe("stream service", () => {
   it("should return a user with increased streams by 2", () => {
-    const streamRouter = streamRouterFactory();
+    const streamService = streamServiceFactory();
 
     const user = {
       id: 1,
@@ -16,7 +16,7 @@ describe("stream service", () => {
       streams: 2,
     };
 
-    const modifiedUser = streamRouter.modifyUserStreams(payload, user);
+    const modifiedUser = streamService.modifyUserStreams(payload, user);
 
     expect(modifiedUser).toEqual({
       id: 1,
