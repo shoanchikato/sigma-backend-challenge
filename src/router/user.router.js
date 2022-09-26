@@ -1,29 +1,10 @@
-function userRouterFactory() {
+function userRouterFactory(userRepo) {
   const express = require("express");
   const router = express.Router();
 
-  const users = [
-    {
-      id: 1,
-      name: "John",
-      surname: "Doe",
-      streams: 1,
-    },
-    {
-      id: 2,
-      name: "Jane",
-      surname: "Doe",
-      streams: 2,
-    },
-    {
-      id: 3,
-      name: "Jenny",
-      surname: "Doe",
-      streams: 3,
-    },
-  ];
-
   router.get("/", (req, res) => {
+    const users = userRepo.getAll();
+    
     res.json(users);
   });
 
@@ -32,7 +13,7 @@ function userRouterFactory() {
 
     const id = parseInt(idString);
 
-    const user = users.find((user) => user.id === id);
+    const user = userRepo.getById(id);
     if (user) {
       res.json(user);
     } else {
