@@ -65,4 +65,24 @@ describe("stream service", () => {
       new Error("streams can't not be less than 0")
     );
   });
+  
+  it("should return error if action is not know", () => {
+    const streamService = streamServiceFactory();
+
+    const user = {
+      id: 1,
+      name: "John",
+      surname: "Doe",
+      streams: 1,
+    };
+
+    const payload = {
+      action: "equals",
+      streams: 2,
+    };
+
+    expect(() => streamService.modifyUserStreams(payload, user)).toThrowError(
+      new Error(`'${payload.action}' unknown action`)
+    );
+  });
 });
