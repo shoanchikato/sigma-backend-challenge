@@ -3,7 +3,7 @@ function streamServiceFactory(repo) {
     const [inc, dec] = ["increase", "decrease"];
     let user = getUserById(id);
 
-    let newStreamsValue = user.streams;
+    let newStreamsValue = parseInt(user.streams);
 
     if (payload.action === inc) {
       newStreamsValue += payload.streams;
