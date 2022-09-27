@@ -12,10 +12,10 @@ function appFactory() {
 
   const userRepo = userRepoFactory();
 
-  const streamService = streamServiceFactory();
+  const streamService = streamServiceFactory(userRepo);
 
   const userRouter = userRouterFactory(userRepo);
-  const streamRouter = streamRouterFactory(userRepo, streamService);
+  const streamRouter = streamRouterFactory(streamService);
 
   app.use("/users", userRouter);
   app.use("/streams", streamRouter);

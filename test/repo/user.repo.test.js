@@ -2,7 +2,7 @@ const userRepoFactory = require("../../src/repo/user.repo");
 
 let userRepo = null;
 
-beforeAll(() => {
+beforeEach(() => {
   userRepo = userRepoFactory();
 });
 

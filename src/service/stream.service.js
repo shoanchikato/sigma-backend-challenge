@@ -1,6 +1,7 @@
-function streamServiceFactory() {
-  const modifyUserStreams = (payload, user) => {
+function streamServiceFactory(repo) {
+  const modifyUserStreams = (id, payload) => {
     const [inc, dec] = ["increase", "decrease"];
+    let user = getUserById(id);
 
     let newStreamsValue = user.streams;
 
@@ -18,6 +19,16 @@ function streamServiceFactory() {
       throw new Error("streams can't not be less than 0");
     } else {
       user.streams = newStreamsValue;
+    }
+
+    return user;
+  };
+
+  const getUserById = (id) => {
+    const user = repo.getById(id);
+
+    if (!user) {
+      throw new Error(`user ${id} not found`);
     }
 
     return user;
