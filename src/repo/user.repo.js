@@ -1,28 +1,7 @@
-function userRepoFactory() {
-  const users = [
-    {
-      id: 1,
-      name: "John",
-      surname: "Doe",
-      streams: 1,
-    },
-    {
-      id: 2,
-      name: "Jane",
-      surname: "Doe",
-      streams: 2,
-    },
-    {
-      id: 3,
-      name: "Jenny",
-      surname: "Doe",
-      streams: 3,
-    },
-  ];
+function userRepoFactory(collection) {
+  const getAll = async () => await collection.find().toArray();
 
-  const getAll = () => users;
-
-  const getById = (id) => users.find((user) => user.id === id);
+  const getById = async (id) => await collection.findOne({ _id: id });
 
   return { getAll, getById };
 }

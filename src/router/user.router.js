@@ -2,18 +2,18 @@ function userRouterFactory(userRepo) {
   const express = require("express");
   const router = express.Router();
 
-  router.get("/", (req, res) => {
-    const users = userRepo.getAll();
+  router.get("/", async (req, res) => {
+    const users = await userRepo.getAll();
     
     res.json(users);
   });
 
-  router.get("/:id", (req, res) => {
+  router.get("/:id", async (req, res) => {
     const { id: idString } = req.params;
 
     const id = parseInt(idString);
 
-    const user = userRepo.getById(id);
+    const user = await userRepo.getById(id);
     if (user) {
       res.json(user);
     } else {

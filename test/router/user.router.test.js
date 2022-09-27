@@ -3,8 +3,8 @@ const appFactory = require("../../src/di");
 
 let app = null;
 
-beforeEach(() => {
-  app = appFactory();
+beforeEach(async () => {
+  app = await appFactory();
 });
 
 describe("user route /users", () => {
@@ -16,19 +16,19 @@ describe("user route /users", () => {
       .then((response) => {
         expect(response.body).toEqual([
           {
-            id: 1,
+            _id: 1,
             name: "John",
             surname: "Doe",
             streams: 1,
           },
           {
-            id: 2,
+            _id: 2,
             name: "Jane",
             surname: "Doe",
             streams: 2,
           },
           {
-            id: 3,
+            _id: 3,
             name: "Jenny",
             surname: "Doe",
             streams: 3,
@@ -46,7 +46,7 @@ describe("user route /users", () => {
       .expect(200)
       .then((response) => {
         expect(response.body).toEqual({
-          id: 2,
+          _id: 2,
           name: "Jane",
           surname: "Doe",
           streams: 2,

@@ -1,9 +1,9 @@
 function streamServiceFactory(repo) {
-  const modifyUserStreams = (id, payload) => {
+  const modifyUserStreams = async (id, payload) => {
     const [inc, dec] = ["increase", "decrease"];
-    let user = getUserById(id);
+    let user = await getUserById(id);
 
-    let newStreamsValue = user.streams;
+    let newStreamsValue = parseInt(user.streams);
 
     if (payload.action === inc) {
       newStreamsValue += payload.streams;
@@ -24,8 +24,8 @@ function streamServiceFactory(repo) {
     return user;
   };
 
-  const getUserById = (id) => {
-    const user = repo.getById(id);
+  const getUserById = async (id) => {
+    const user = await repo.getById(id);
 
     if (!user) {
       throw new Error(`user ${id} not found`);

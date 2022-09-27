@@ -3,8 +3,8 @@ const appFactory = require("../../src/di");
 
 let app = null;
 
-beforeEach(() => {
-  app = appFactory();
+beforeEach(async () => {
+  app = await appFactory();
 });
 
 describe("stream router", () => {
@@ -16,7 +16,7 @@ describe("stream router", () => {
       .expect(200)
       .then((response) => {
         expect(response.body).toEqual({
-          id: 2,
+          _id: 2,
           name: "Jane",
           surname: "Doe",
           streams: 3,
