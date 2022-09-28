@@ -40,6 +40,16 @@ yarn start
 yarn test
 ```
 
+* Running Docker Compose in detached mode
+```
+docker-compose up -d
+```
+
+* Stopping Docker Compose and cleaning up images
+```
+docker-compose down --rmi all
+```
+
 ## Frameworks and Libraries
 
 ### Backend
