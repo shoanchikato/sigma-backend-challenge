@@ -2,7 +2,7 @@
 
 ## Description
 
-Basic API for keeping tracking of number of streams for individual customer
+Basic API for keeping tracking of number of streams per user and limiting them to a maximum of 3 streams.
 
 ## Architecture
 
