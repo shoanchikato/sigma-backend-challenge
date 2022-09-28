@@ -22,6 +22,8 @@ Will be using a layered architecture with the use of factory functions instead o
 
 [For Windows Install Git](https://git-scm.com/downloads)
 
+[Install Docker](https://www.docker.com/) 
+
 Run commands in linux command-line or git bash for Windows (in repository root directory)
 
 * For installing dependences
@@ -60,3 +62,14 @@ docker-compose down --rmi all
 
 * [ExpressJs](https://expressjs.com/)
 
+* [Docker](https://www.docker.com/)
+
+* [Swagger](https://swagger.io/)
+
+### Scability strategy
+
+* Add Database, like DymanoDB, MongoDB, etc instead of an in-memory array
+
+* Add PM2 to spin up several instances of the application
+
+* Use cloud functions instead of a server application
