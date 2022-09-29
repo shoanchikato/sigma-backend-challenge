@@ -52,6 +52,8 @@ docker-compose up -d
 docker-compose down --rmi all
 ```
 
+* API Documentation on [link](http://localhost:3000) when the application is running
+
 ## Frameworks and Libraries
 
 ### Backend
